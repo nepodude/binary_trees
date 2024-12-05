@@ -14,7 +14,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 		return (0);
 
 	checker = binary_tree_height(tree);
-	return ((int)(binary_tree_size(tree)) == power(2, checker + 1) - 1);
+	return ((int)(binary_tree_size(tree)) == (int)(checker + 1) - 1);
 }
 
 /**
@@ -34,7 +34,6 @@ size_t binary_tree_size(const binary_tree_t *tree)
 	my_size += binary_tree_size(tree->right);
 	return (my_size);
 }
-
 
 /**
  * binary_tree_height - Measures the height of a binary tree.
@@ -74,20 +73,3 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	}
 }
 
-/**
-* power - power function
-* @base: base
-* @exponent: exponent
-* Return: answer for math power function.
- */
-
-int power(int base, int exponent)
-{
-	int result = 1;
-
-	for (int i = 0; i < exponent; i++)
-	{
-		result *= base;
-	}
-	return (result);
-}
