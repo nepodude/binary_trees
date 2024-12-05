@@ -24,7 +24,7 @@ int binary_tree_balance(const binary_tree_t *tree)
  * @tree: Pointer to the root node of the tree to measure the height.
  * Return: Height of the tree, or 0 if tree is NULL.
  */
-size_t binary_tree_height(const binary_tree_t *tree)
+size_t binary_tree_height(binary_tree_t *tree)
 {
 	size_t left_height = 0;
 	size_t right_height = 0;
