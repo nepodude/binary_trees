@@ -1,5 +1,7 @@
 #include "binary_trees.h"
 
+#define power_of_two(n) (1 << (n))
+
 /**
  * binary_tree_is_perfect - checks if the tree is perfect
  * @tree: Pointer to the node to measure the depth.
@@ -8,12 +10,12 @@
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int checker = 0;
+	size_t checker;
 
 	if (tree == NULL)
 		return (0);
 	checker = (int)binary_tree_height(tree);
-	return ((int)(binary_tree_size(tree)) == power(2, checker + 1) - 1);
+	return (binary_tree_size(tree) == (size_t)(power_of_two(checker + 1) - 1));
 }
 
 /**
@@ -56,22 +58,4 @@ size_t binary_tree_height(const binary_tree_t *tree)
 		return (left_height);
 	else
 		return (right_height);
-}
-
-/**
-* power - power function
-* @base: base
-* @exponent: exponent
-* Return: answer for math power function.
- */
-
-int power(int base, int exponent)
-{
-	int result = 1;
-
-	for (int i = 0; i < exponent; i++)
-	{
-		result *= base;
-	}
-	return (result);
 }
