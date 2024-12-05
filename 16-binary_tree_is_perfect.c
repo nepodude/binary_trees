@@ -14,7 +14,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 		return (0);
 
 	checker = binary_tree_height(tree);
-	return ((int)(binary_tree_size(tree)) == (int)(checker + 1) - 1);
+	return ((int)(binary_tree_size(tree)) == power(2, checker + 1) - 1);
 }
 
 /**
@@ -49,27 +49,30 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	{
 		return (0);
 	}
-
-	/* Recursively calculate the height of the left subtree */
 	if (tree->left != NULL)
-	{
 		left_height = binary_tree_height(tree->left) + 1;
-	}
-
-	/* Recursively calculate the height of the right subtree */
 	if (tree->right != NULL)
-	{
 		right_height = binary_tree_height(tree->right) + 1;
-	}
-
-	/* Compare and return the greater height */
 	if (left_height > right_height)
-	{
 		return (left_height);
-	}
 	else
-	{
 		return (right_height);
-	}
 }
 
+/**
+* power - power function
+* @base: base
+* @exponent: exponent
+* Return: answer for math power function.
+ */
+
+int power(int base, int exponent)
+{
+	int result = 1;
+
+	for (int i = 0; i < exponent; i++)
+	{
+		result *= base;
+	}
+	return (result);
+}
